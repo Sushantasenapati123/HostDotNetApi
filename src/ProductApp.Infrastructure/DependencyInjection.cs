@@ -12,6 +12,7 @@ namespace ProductApp.Infrastructure
         {
             services.AddSingleton<SqlConnectionFactory>();
             services.AddScoped<ITestModelRepository, TestModelRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
             return services;
         }

@@ -55,4 +55,16 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
-.vs/ 
+.vs/
+
+# Visual Studio User Settings & Profiles
+*.csproj.user
+*.user
+[Pp]ublish[Pp]rofiles/
+*.pubxml.user
+
+# Local Publish Folders
+pub/
+
+# Credentials & Publish Settings
+*.publishSettings

@@ -15,5 +15,7 @@ namespace ProductApp.Application.Common.Dtos
 
         [Range(0, int.MaxValue, ErrorMessage = "Stock cannot be negative")]
         public int Stock { get; set; }
+
+        public string? CreatedBy { get; set; }
     }
 }

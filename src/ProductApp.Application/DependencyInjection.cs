@@ -9,6 +9,7 @@ namespace ProductApp.Application
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
             services.AddScoped<ITestModelService, TestModelService>();
+            services.AddScoped<IUserService, UserService>();
             return services;
         }
     }

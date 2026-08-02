@@ -50,6 +50,7 @@ namespace ProductApp.Infrastructure.Data.Repositories
             parameters.Add("@Description", entity.Description);
             parameters.Add("@Price", entity.Price);
             parameters.Add("@Stock", entity.Stock);
+            parameters.Add("@CreatedBy", entity.CreatedBy);
 
             return await connection.ExecuteScalarAsync<int>(
                 "USP_Test_tbl",
@@ -67,6 +68,7 @@ namespace ProductApp.Infrastructure.Data.Repositories
             parameters.Add("@Description", entity.Description);
             parameters.Add("@Price", entity.Price);
             parameters.Add("@Stock", entity.Stock);
+            parameters.Add("@CreatedBy", entity.CreatedBy);
 
             var result = await connection.QueryFirstOrDefaultAsync<TestModel>(
                 "USP_Test_tbl",

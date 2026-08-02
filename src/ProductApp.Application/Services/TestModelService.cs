@@ -37,7 +37,8 @@ namespace ProductApp.Application.Services
                 Name = dto.Name,
                 Description = dto.Description,
                 Price = dto.Price,
-                Stock = dto.Stock
+                Stock = dto.Stock,
+                CreatedBy = dto.CreatedBy
             };
 
             var generatedId = await _repository.AddAsync(entity);
@@ -54,7 +55,8 @@ namespace ProductApp.Application.Services
                 Name = dto.Name,
                 Description = dto.Description,
                 Price = dto.Price,
-                Stock = dto.Stock
+                Stock = dto.Stock,
+                CreatedBy = dto.CreatedBy
             };
 
             return await _repository.UpdateAsync(entity);
@@ -74,6 +76,7 @@ namespace ProductApp.Application.Services
                 Description = entity.Description,
                 Price = entity.Price,
                 Stock = entity.Stock,
+                CreatedBy = entity.CreatedBy,
                 CreatedDate = entity.CreatedDate,
                 UpdatedDate = entity.UpdatedDate
             };

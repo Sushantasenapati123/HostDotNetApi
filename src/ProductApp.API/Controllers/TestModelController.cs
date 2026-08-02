@@ -59,7 +59,7 @@ namespace ProductApp.API.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return BadRequest(ModelState);  
             }
 
             var updated = await _service.UpdateAsync(id, dto);

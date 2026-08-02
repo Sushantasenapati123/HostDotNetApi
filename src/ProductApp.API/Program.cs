@@ -14,11 +14,17 @@ builder.Services.AddControllers();
 // Add CORS services
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
+    var corsOrigins = builder.Configuration.GetValue<string>("CorsOrigins")
+        ?? "http://localhost:4200";
+
+    var origins = corsOrigins.Split(',', StringSplitOptions.RemoveEmptyEntries);
+
+    options.AddPolicy("CorsPolicy", policy =>
     {
-        policy.AllowAnyOrigin()
+        policy.WithOrigins(origins)
               .AllowAnyHeader()
-              .AllowAnyMethod();
+              .AllowAnyMethod()
+              .AllowCredentials();
     });
 });
 
@@ -32,9 +38,8 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+app.UseDeveloperExceptionPage();
+
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
@@ -42,11 +47,11 @@ if (app.Environment.IsDevelopment())
         c.RoutePrefix = string.Empty; // Serve Swagger UI at the root
         c.DisplayOperationId(); // Display action/method names next to routes
     });
-}
 
-app.UseHttpsRedirection();
 
-app.UseCors("AllowAll");
+// app.UseHttpsRedirection();
+
+app.UseCors("CorsPolicy");
 
 app.UseAuthorization();
 
