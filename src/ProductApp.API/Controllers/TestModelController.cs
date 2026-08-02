@@ -16,7 +16,7 @@ namespace ProductApp.API.Controllers
             _service = service;
         }
 
-        [HttpGet]
+        [HttpGet("Getall")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<TestModelDto>))]
         public async Task<ActionResult<IEnumerable<TestModelDto>>> GetAll()
         {
@@ -55,7 +55,7 @@ namespace ProductApp.API.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Update(int id, [FromBody] UpdateTestModelDto dto)
+        public async Task<IActionResult> Updatex(int id, [FromBody] UpdateTestModelDto dto)
         {
             if (!ModelState.IsValid)
             {
